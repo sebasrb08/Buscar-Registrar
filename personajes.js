@@ -1,4 +1,4 @@
-const contactos=[
+let contactos=[
     {
         nombre: "Ronald",
         apellido: "Rojas",
@@ -52,5 +52,13 @@ const contactos=[
     },
 
 ]
+
+let datos=JSON.parse (localStorage.getItem('nombres'))
+
+contactos=datos
+console.log(datos)
+
+
+
 
 export default contactos

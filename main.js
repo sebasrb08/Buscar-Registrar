@@ -1,6 +1,7 @@
 import contactos from "./personajes.js" 
 const select=document.getElementById('criterio')
 const img=document.getElementById('img')
+const imagenes=document.getElementById('imagenes')
 const nombres2=document.getElementById('nombres')
 const agregar=document.getElementById('agregar')
 agregar.addEventListener('click',agregar2)
@@ -8,6 +9,7 @@ nombres2.addEventListener('click',nombres3)
 let indice=''
 const Buscar=document.getElementById('buscar')
 Buscar.addEventListener('click',buscar)
+
 function buscar(){
     if(contactos.find(contac=>contac.nombre==nombres2.value)){
         indice=contactos.findIndex(contac=>contac.nombre==nombres2.value)
@@ -21,12 +23,15 @@ function buscar(){
         }
         else if(select.value=='0'){
             display.innerText=`Apellido:${contactos[indice].apellido}`
+            img.src=contactos[indice].foto
         }
         else if(select.value=='1'){
             display.innerText=`Numero:${contactos[indice].numero}`
+            img.src=contactos[indice].foto
         }
         else if(select.value=='2'){
             display.innerText=`Gustos:${contactos[indice].gustos}`
+            img.src=contactos[indice].foto
         }
         
     }else{
@@ -41,3 +46,4 @@ function nombres3(){
 function agregar2(){
     location.href="./index2.html"
 }
+
