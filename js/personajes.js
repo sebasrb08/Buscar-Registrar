@@ -54,9 +54,10 @@ let contactos=[
 ]
 
 let datos=JSON.parse (localStorage.getItem('nombres'))
+if (datos!=null){
+    contactos=datos
+}
 
-contactos=datos
-console.log(datos)
 
 
 

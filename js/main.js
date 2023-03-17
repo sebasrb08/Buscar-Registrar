@@ -1,7 +1,7 @@
 import contactos from "./personajes.js" 
 const select=document.getElementById('criterio')
 const img=document.getElementById('img')
-const imagenes=document.getElementById('imagenes')
+let fotos=document.querySelector('.fotos')
 const nombres2=document.getElementById('nombres')
 const agregar=document.getElementById('agregar')
 agregar.addEventListener('click',agregar2)
@@ -10,9 +10,18 @@ let indice=''
 const Buscar=document.getElementById('buscar')
 Buscar.addEventListener('click',buscar)
 
+for(let i=0;i<contactos.length;i++){
+    let imagenes= document.createElement('img')
+    imagenes.src=contactos[i].foto
+    fotos.append(imagenes)
+   
+
+}
+
+
 function buscar(){
-    if(contactos.find(contac=>contac.nombre==nombres2.value)){
-        indice=contactos.findIndex(contac=>contac.nombre==nombres2.value)
+    if(contactos.find(contac=>contac.nombre.toUpperCase()==nombres2.value || contac.nombre.toLowerCase()==nombres2.value || contac.nombre==nombres2.value )){
+        indice=contactos.findIndex(contac=>contac.nombre.toUpperCase()==nombres2.value || contac.nombre.toLowerCase()==nombres2.value || contac.nombre==nombres2.value)
         if(select.value=='todo'){
             display.innerText+=`Nombre:${contactos[indice].nombre}
             Apellido:${contactos[indice].apellido}
@@ -44,6 +53,6 @@ function nombres3(){
     img.src="./imagenes/person2.svg"
 }
 function agregar2(){
-    location.href="./index2.html"
+    location.href="./html/index2.html"
 }
 
